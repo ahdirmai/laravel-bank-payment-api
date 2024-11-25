@@ -9,22 +9,22 @@ use Illuminate\Support\Facades\Route;
 // })->middleware('auth');
 
 
-Route::get('/test', function (Request $request) {
-    $dataObjekPajak = \App\Models\DataObjekPajak::all();
-    $jenisPajak = \App\Models\JenisPajak::all();
-    $objekPajak = \App\Models\ObjekPajak::all();
-    $skpd = \App\Models\Skpd::all();
-    $sptpd = \App\Models\Sptpd::all();
-    $wajibPajak = \App\Models\WajibPajak::all();
-    return response()->json([
-        'dataObjekPajak' => $dataObjekPajak,
-        'jenisPajak' => $jenisPajak,
-        'objekPajak' => $objekPajak,
-        'skpd' => $skpd,
-        'sptpd' => $sptpd,
-        'wajibPajak' => $wajibPajak,
-    ]);
-});
+// Route::get('/test', function (Request $request) {
+//     $dataObjekPajak = \App\Models\DataObjekPajak::all();
+//     $jenisPajak = \App\Models\JenisPajak::all();
+//     $objekPajak = \App\Models\ObjekPajak::all();
+//     $skpd = \App\Models\Skpd::all();
+//     $sptpd = \App\Models\Sptpd::all();
+//     $wajibPajak = \App\Models\WajibPajak::all();
+//     return response()->json([
+//         'dataObjekPajak' => $dataObjekPajak,
+//         'jenisPajak' => $jenisPajak,
+//         'objekPajak' => $objekPajak,
+//         'skpd' => $skpd,
+//         'sptpd' => $sptpd,
+//         'wajibPajak' => $wajibPajak,
+//     ]);
+// });
 
 Route::middleware('api.payment.headers')->group(function () {
 
