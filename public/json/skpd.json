@@ -1,0 +1,54 @@
+{
+    "skpd": [{
+            "nosptpd": 600000120241100001,
+            "tglsptpd": "2024-11-20",
+            "tglskpd": "2024-11-20",
+            "kodepajak": "4.1.01.19",
+            "kodeobjek": "03",
+            "nop": "06000001",
+            "npwpd": "2531900039",
+            "masapajak": "11-2024",
+            "nilaiomzet": 10000000,
+            "persenpajak": 10,
+            "nilaipajak": 1000000,
+            "tglinput": "2024-11-22 22:01:37",
+            "tglupdate": null,
+            "userinput": null,
+            "userupdate": null
+        },
+        {
+            "nosptpd": 600000120241100002,
+            "tglsptpd": "2024-11-20",
+            "tglskpd": "2024-11-20",
+            "kodepajak": "4.1.01.19",
+            "kodeobjek": "03",
+            "nop": "06000001",
+            "npwpd": "2531900039",
+            "masapajak": "11-2024",
+            "nilaiomzet": 5000000,
+            "persenpajak": 10,
+            "nilaipajak": 500000,
+            "tglinput": "2024-11-22 22:02:53",
+            "tglupdate": null,
+            "userinput": null,
+            "userupdate": null
+        },
+        {
+            "nosptpd": 1400008320241200001,
+            "tglsptpd": "2024-04-18",
+            "tglskpd": "2024-04-18",
+            "kodepajak": "4.1.01.14",
+            "kodeobjek": "01",
+            "nop": "14000083",
+            "npwpd": "2531900086",
+            "masapajak": "12-2024",
+            "nilaiomzet": 10000000,
+            "persenpajak": 25,
+            "nilaipajak": 2500000,
+            "tglinput": "2024-11-22 22:13:47",
+            "tglupdate": null,
+            "userinput": null,
+            "userupdate": null
+        }
+    ]
+}
