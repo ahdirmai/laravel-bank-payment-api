@@ -10,6 +10,7 @@ class InquiryService
 {
     public function handleInquiry(string $kodePembayaran)
     {
+
         $payment = Skpd::with('wajibPajak')->where('nosptpd', $kodePembayaran)->first();
 
         if (!$payment) {
@@ -40,8 +41,8 @@ class InquiryService
                     'kode_pembayaran' => (string)$kodePembayaran,
                     'masa_pajak' => $payment->masapajak,
                     'besaran_pokok_pajak' => $payment->nilaipajak,
-                    'usaha' => $payment->wajibPajak->namawpd,
-                    'wajib_pajak' => $payment->wajibPajak->jenisw === 'badanUsaha' ? 'Wajib 1' : 'Wajib 2',
+                    'usaha' => $payment->objectPajak->namaobjekpajak,
+                    'wajib_pajak' => $payment->wajibPajak->namawpd,
                     'npwpd' => $payment->npwpd,
                 ]
             ];
@@ -50,7 +51,7 @@ class InquiryService
                 return [
                     'name' => "Internal Server Error",
                     'status' => 500,
-                    'message' => $payment['message'],
+                    'message' => $th->getMessage(),
                     'code' => 0
                 ];
             }

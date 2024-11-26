@@ -32,10 +32,11 @@ class PaymentService
             ];
         }
 
+
         try {
+
             DB::beginTransaction();
 
-            // return 'x';
             $sspd = Sspd::create([
                 'nosptpd' => (string)$kodePembayaran,
                 'tglbayar' => now(),
@@ -56,8 +57,8 @@ class PaymentService
                     'kode_pembayaran' => (string)$kodePembayaran,
                     'masa_pajak' => $payment->masapajak,
                     'besaran_pokok_pajak' => $payment->nilaipajak,
-                    'usaha' => $payment->wajibPajak->namawpd,
-                    'wajib_pajak' => $payment->wajibPajak->jenisw === 'badanUsaha' ? 'Wajib 1' : 'Wajib 2',
+                    'usaha' => $payment->objectPajak->namaobjekpajak,
+                    'wajib_pajak' => $payment->wajibPajak->namawpd,
                     'lunas_pada' => date('Y-m-d H:i:s', strtotime($sspd->tglbayar)),
                     'npwpd' => $payment->npwpd,
                 ]

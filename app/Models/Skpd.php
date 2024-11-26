@@ -45,8 +45,8 @@ class Skpd extends Model
         return $this->hasOne(Sspd::class, 'nosptpd', 'nosptpd');
     }
 
-    // public function objectPajak()
-    // {
-    //     return $this->belongsTo(DataObjekPajak::class, 'nop', 'nop');
-    // }
+    public function objectPajak()
+    {
+        return $this->belongsTo(DataObjekPajak::class, 'nop', 'nop');
+    }
 }

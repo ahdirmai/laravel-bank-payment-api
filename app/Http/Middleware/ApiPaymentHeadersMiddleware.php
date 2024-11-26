@@ -66,6 +66,7 @@ class ApiPaymentHeadersMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         try {
+
             // Validate Content-Type
             if (!$this->validateContentType($request)) {
                 return $this->errorResponse('INVALID_CONTENT_TYPE');
@@ -188,9 +189,14 @@ class ApiPaymentHeadersMiddleware
             return false;
         }
 
-        $kodePayment = $request->input('kode_pembayaran');
-        if (!$kodePayment) {
-            return false;
+        $kodePayment = $request->input('kode_pembayaran') ?? null;
+        if (!$kodePayment || $kodePayment == null) {
+            return [
+                'status' => false,
+                'expected' => null,
+                'actual' => null,
+                'data' => null
+            ];
         }
 
         $signatureData = "{$credentials['username']}.{$request->header('X-Timestamp')}.{$kodePayment}";

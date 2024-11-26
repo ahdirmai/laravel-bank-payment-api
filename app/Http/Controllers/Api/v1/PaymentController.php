@@ -21,6 +21,7 @@ class PaymentController extends Controller
 
     public function inquiry(PaymentInquiryRequest $request)
     {
+        
         $result = $this->inquiryService->handleInquiry($request->kode_pembayaran);
         if (!$result['success']) {
             if ($result['code'] == 500) {
