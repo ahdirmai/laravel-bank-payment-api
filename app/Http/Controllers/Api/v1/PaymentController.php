@@ -23,6 +23,22 @@ class PaymentController extends Controller
     {
         $result = $this->inquiryService->handleInquiry($request->kode_pembayaran);
         if (!$result['success']) {
+            if ($result['code'] == 500) {
+                if (app()->environment('local')) {
+                    return [
+                        'name' => "Internal Server Error",
+                        'status' => 500,
+                        'message' => $result['message'],
+                        'code' => 0
+                    ];
+                }
+                return [
+                    'name' => "Internal Server Error",
+                    'status' => 500,
+                    'message' => 'Terjadi kesalahan internal server.',
+                    'code' => 0
+                ];
+            }
             return response()->json([
                 'message' => $result['message'],
                 'code' => $result['code']
@@ -41,6 +57,23 @@ class PaymentController extends Controller
         return $result = $this->paymentService->processPayment($request->kode_pembayaran);
 
         if (!$result['success']) {
+            if ($result['code'] == 500) {
+                if (app()->environment('local')) {
+                    return [
+                        'name' => "Internal Server Error",
+                        'status' => 500,
+                        'message' => $result['message'],
+                        'code' => 0
+                    ];
+                }
+                return [
+                    'name' => "Internal Server Error",
+                    'status' => 500,
+                    'message' => 'Terjadi kesalahan internal server.',
+                    'code' => 0
+                ];
+            }
+
             return response()->json([
                 'message' => $result['message'],
                 'code' => $result['code']

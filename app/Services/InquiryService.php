@@ -31,8 +31,6 @@ class InquiryService
         }
 
         try {
-            DB::beginTransaction();
-
             return [
                 'success' => true,
                 'message' => 'Berhasil menemukan pembayaran.',
@@ -48,20 +46,19 @@ class InquiryService
                 ]
             ];
         } catch (\Throwable $th) {
-            DB::rollBack();
             if (app()->environment('local')) {
                 return [
                     'name' => "Internal Server Error",
-                    'success' => false,
-                    'message' => $th->getMessage(),
-                    'code' => 500
+                    'status' => 500,
+                    'message' => $payment['message'],
+                    'code' => 0
                 ];
             }
             return [
                 'name' => "Internal Server Error",
-                'success' => false,
+                'status' => 500,
                 'message' => 'Terjadi kesalahan internal server.',
-                'code' => 500
+                'code' => 0
             ];
         }
     }
